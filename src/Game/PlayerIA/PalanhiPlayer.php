@@ -17,57 +17,13 @@ class PalanhiPlayer extends Player
 
     public function getChoice()
     {
-        // -------------------------------------    -----------------------------------------------------
-        // How to get my Last Choice           ?    $this->result->getLastChoiceFor($this->mySide) -- if 0 (first round)
-        // How to get the opponent Last Choice ?    $this->result->getLastChoiceFor($this->opponentSide) -- if 0 (first round)
-        // -------------------------------------    -----------------------------------------------------
-        // How to get my Last Score            ?    $this->result->getLastScoreFor($this->mySide) -- if 0 (first round)
-        // How to get the opponent Last Score  ?    $this->result->getLastScoreFor($this->opponentSide) -- if 0 (first round)
-        // -------------------------------------    -----------------------------------------------------
-        // How to get all the Choices          ?    $this->result->getChoicesFor($this->mySide)
-        // How to get the opponent Last Choice ?    $this->result->getChoicesFor($this->opponentSide)
-        // -------------------------------------    -----------------------------------------------------
-        // How to get my Last Score            ?    $this->result->getLastScoreFor($this->mySide)
-        // How to get the opponent Last Score  ?    $this->result->getLastScoreFor($this->opponentSide)
-        // -------------------------------------    -----------------------------------------------------
-        // How to get the stats                ?    $this->result->getStats()
-        // How to get the stats for me         ?    $this->result->getStatsFor($this->mySide)
-        //          array('name' => value, 'score' => value, 'friend' => value, 'foe' => value
-        // How to get the stats for the oppo   ?    $this->result->getStatsFor($this->opponentSide)
-        //          array('name' => value, 'score' => value, 'friend' => value, 'foe' => value
-        // -------------------------------------    -----------------------------------------------------
-        // How to get the number of round      ?    $this->result->getNbRound()
-        // -------------------------------------    -----------------------------------------------------
-        // How can i display the result of each round ? $this->prettyDisplay()
-        // -------------------------------------    -----------------------------------------------------
 
-        if ($this->result->getLastScoreFor($this->mySide) < 5) {
-            return parent::paperChoice();
-        }
-
-        $rockOp = $this->result->getStatsFor($this->opponentSide)[parent::rockChoice()];
-        $paperOp = $this->result->getStatsFor($this->opponentSide)[parent::paperChoice()];
-        $scissorsOp = $this->result->getStatsFor($this->opponentSide)[parent::scissorsChoice()];
-
-        if ($this->result->getNbRound() < 900) {
-            if ($rockOp > $paperOp && $rockOp > $scissorsOp) {
-            return parent::paperChoice();
-            } elseif ($paperOp > $rockOp && $paperOp > $scissorsOp) {
-            return parent::scissorsChoice();
-            } elseif ($scissorsOp > $rockOp && $scissorsOp > $paperOp) {
+        if ($this->result->getLastChoiceFor($this->mySide) === parent::paperChoice())
             return parent::rockChoice();
-            }
-        }
-
-        if ($this->result->getLastScoreFor($this->mySide) == $this->result->getLastScoreFor($this->opponentSide)) {
-            return $this->result->getLastChoiceFor($this->mySide);
-        } elseif ($this->result->getLastScoreFor($this->mySide) > $this->result->getLastScoreFor($this->opponentSide)) {
-            return $this->result ->getLastChoiceFor($this->opponentSide);
-        } elseif ($this->result->getLastScoreFor($this->mySide) < $this->result->getLastScoreFor($this->opponentSide)) {
-            return $this->result ->getLastChoiceFor($this->opponentSide);
-        }
-
-        return parent::paperChoice();
+        else if ($this->result->getLastChoiceFor($this->mySide) === parent::scissorsChoice())
+            return parent::paperChoice();
+       
+        return parent::scissorsChoice();
 
     }
 };
