@@ -41,7 +41,16 @@ class PalanhiPlayer extends Player
         // How can i display the result of each round ? $this->prettyDisplay()
         // -------------------------------------    -----------------------------------------------------
 
+        if ($this->result->getLastScoreFor($this->mySide) == 0) {
+            return parent::scissorsChoice();
+        }
 
+        if ($this->result->getLastScoreFor($this->mySide) == 1) {
+            return $this->result->getLastChoiceFor($this->mySide);
+        } elseif ($this->result->getLastScoreFor($this->mySide) == 3) {
+            return $this->result->getLastChoiceFor($this->opponentSide);
+        }
+        
         return parent::rockChoice();
 
     }
