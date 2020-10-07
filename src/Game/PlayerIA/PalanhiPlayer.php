@@ -57,9 +57,11 @@ class PalanhiPlayer extends Player
            return parent::rockChoice();
         }
 
-        if ($this->result->getLastScoreFor($this->mySide) == 1) {
+        if ($this->result->getLastScoreFor($this->mySide) == $this->result->getLastScoreFor($this->opponentSide)) {
             return $this->result->getLastChoiceFor($this->mySide);
-        } elseif ($this->result->getLastScoreFor($this->mySide) == 3) {
+        } elseif ($this->result->getLastScoreFor($this->mySide) > $this->result->getLastScoreFor($this->opponentSide)) {
+            return $this->result ->getLastChoiceFor($this->opponentSide);
+        } elseif ($this->result->getLastScoreFor($this->mySide) < $this->result->getLastScoreFor($this->opponentSide)) {
             return $this->result ->getLastChoiceFor($this->opponentSide);
         }
 
