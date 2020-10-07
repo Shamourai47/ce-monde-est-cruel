@@ -51,6 +51,10 @@ class PalanhiPlayer extends Player
 
         if ($rockOp > $paperOp && $rockOp > $scissorsOp) {
            return parent::rockChoice();
+        } elseif ($paperOp > $rockOp && $paperOp > $scissorsOp) {
+           return parent::paperChoice();
+        } elseif ($scissorsOp > $rockOp && $scissorsOp > $paperOp) {
+           return parent::scissorsChoice();
         }
 
         if ($this->result->getLastScoreFor($this->mySide) == 1) {
