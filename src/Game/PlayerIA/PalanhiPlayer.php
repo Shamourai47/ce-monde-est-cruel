@@ -49,7 +49,7 @@ class PalanhiPlayer extends Player
         $paperOp = $this->result->getStatsFor($this->opponentSide)[parent::paperChoice()];
         $scissorsOp = $this->result->getStatsFor($this->opponentSide)[parent::scissorsChoice()];
 
-        if ($this->result->getNbRound() < 900)
+        if ($this->result->getNbRound() < 900) {
             if ($rockOp > $paperOp && $rockOp > $scissorsOp) {
             return parent::paperChoice();
             } elseif ($paperOp > $rockOp && $paperOp > $scissorsOp) {
