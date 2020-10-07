@@ -42,16 +42,16 @@ class PalanhiPlayer extends Player
         // -------------------------------------    -----------------------------------------------------
 
         if ($this->result->getLastScoreFor($this->mySide) == 0) {
-            return parent::scissorsChoice();
+            return parent::paperChoice();
         }
 
         if ($this->result->getLastScoreFor($this->mySide) == 1) {
             return $this->result->getLastChoiceFor($this->mySide);
         } elseif ($this->result->getLastScoreFor($this->mySide) == 3) {
-            return $this->result->getLastChoiceFor($this->opponentSide);
+            return $this->result ->getLastChoiceFor($this->opponentSide);
         }
-        
-        return parent::rockChoice();
+
+        return parent::paperChoice();
 
     }
 };
