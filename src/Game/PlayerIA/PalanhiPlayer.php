@@ -7,7 +7,11 @@ use Hackathon\Game\Result;
 /**
  * Class PalanhiPlayers
  * @package Hackathon\PlayerIA
- * @author YOUR NAME HERE
+ * @author SHAM KAZEMI-JOESTANI
+ * J'ai voulu tenter le tout pour le tout.
+ * De base je voulais faire une chose obscure et au final je me suis juste dit que je prendrais le dernier coup de l'autre
+ * et que je tenterais ce qu'il ne ferait pas.
+ * De base (bis), je voulais prendre les stats des coups de l'adversaire et jouer l'inverse du coup le plus joué.
  */
 class PalanhiPlayer extends Player
 {
